@@ -1,14 +1,13 @@
 pipeline {
-    agent any
-    
 
-    environment {
-
+        environment {
+        DOCKERHUB_USERNAME = 'mirzazam'
         DOCKERHUB_PASS = credentials('dockerhub-pass')
         DOCKER_IMAGE_NAME = 'jenkins'
         DOCKER_IMAGE_TAG = 'updated'
     }
-    
+
+    agent any
     stages {
         stage('Build the docker image') {
             steps {
