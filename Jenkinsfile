@@ -16,6 +16,7 @@ pipeline {
                     docker.build("${DOCKERHUB_USERNAME}/${DOCKER_IMAGE_NAME}:${DOCKER_IMAGE_TAG}")
                 }
             }
+        }
 
         stage('Push the docker image') {
             steps {
@@ -27,7 +28,7 @@ pipeline {
             }
         }
 
-        }
+        
     }
 }
 
