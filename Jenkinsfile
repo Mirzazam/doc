@@ -28,7 +28,7 @@ pipeline {
             steps {
                 script {
                     docker.withRegistry("https://registry.hub.docker.com", 'credentials-id') {
-                        dockerImage.push()
+                        sh 'docker push mirzazam/jenkins:updated'
                     }
                 }
             }
