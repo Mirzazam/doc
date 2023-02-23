@@ -3,4 +3,9 @@ RUN jenkins-plugin-cli \
     --plugins \
     git \
     workflow-aggregator \
-    blueocean \
+    blueocean 
+USER root
+RUN apt install maven -y
+USER jenkins
+
+EXPOSE 8080
