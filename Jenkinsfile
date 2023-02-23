@@ -19,7 +19,7 @@ pipeline {
         stage('Build the docker image') {
             steps {
                 
-                    sh 'docker build -t mirzazam/${DOCKER_IMAGE_NAME} .'
+                    sh 'docker build -t mirzazam/${DOCKER_IMAGE_NAME}:${DOCKER_IMAGE_TAG} .'
                 
             }
         }
@@ -28,7 +28,7 @@ pipeline {
             steps {
                 script {
                     docker.withRegistry("https://registry.hub.docker.com", 'credentials-id') {
-                        sh 'docker image tag jenkins mirzazam/jenkins:updated'
+                        sh 'docker login -u ${DOCKERHUB_USERNSME} -p ${DOCKERHUB_PASS} docker.io'
                         sh 'docker push mirzazam/jenkins:updated'
                     }
                 }
