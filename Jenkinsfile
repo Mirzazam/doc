@@ -13,7 +13,7 @@ pipeline {
         stage('Build the docker image') {
             steps {
                 script {
-                    docker.build("${DOCKERHUB_USERNAME}/${DOCKER_IMAGE_NAME}:${DOCKER_IMAGE_TAG}", . )
+                    docker.build("${DOCKERHUB_USERNAME}/${DOCKER_IMAGE_NAME}:${DOCKER_IMAGE_TAG}")
                 }
             }
 
