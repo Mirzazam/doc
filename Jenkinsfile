@@ -12,9 +12,9 @@ pipeline {
     stages {
         stage('Build the docker image') {
             steps {
-                script {
-                    docker.build("mirzazam/${DOCKER_IMAGE_NAME}:${DOCKER_IMAGE_TAG}", "${DOCKERFILE_PATH}" )
-                }
+                
+                    sh docker build -t mirzazam/${DOCKER_IMAGE_NAME}:${DOCKER_IMAGE_TAG} .
+                
             }
         }
 
