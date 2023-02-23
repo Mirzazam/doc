@@ -2,7 +2,7 @@ pipeline {
 
         environment {
         DOCKERHUB_USERNAME = 'mirzazam'
-        DOCKERHUB_PASS = 'N3aa3h773h!'
+        DOCKERHUB_PASS = credentialsId('dockerhub-credentials')
         DOCKER_IMAGE_NAME = 'jenkins'
         DOCKER_IMAGE_TAG = 'updated'
         DOCKERFILE_PATH = '/home/ubuntu/Dockerfile'
@@ -21,7 +21,7 @@ pipeline {
         stage('Push the docker image') {
             steps {
                 script {
-                    docker.withRegistry("https://registry.hub.docker.com", "dockerhub-credentials") {
+                    docker.withRegistry("https://registry.hub.docker.com", '${DOCKERHUB_PASS}') {
                         dockerImage.push()
                     }
                 }
