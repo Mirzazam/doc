@@ -2,7 +2,7 @@ pipeline {
 
         environment {
         DOCKERHUB_USERNAME = 'mirzazam'
-        DOCKERHUB_PASS = credentialsId('dockerhub-credentials')
+        DOCKERHUB_PASS = credentials('dockerhub-credentials')
         DOCKER_IMAGE_NAME = 'jenkins'
         DOCKER_IMAGE_TAG = 'updated'
         DOCKERFILE_PATH = '/home/ubuntu/Dockerfile'
