@@ -3,9 +3,6 @@ RUN jenkins-plugin-cli \
     --plugins \
     git \
     workflow-aggregator \
-    blueocean 
-USER root
-RUN sudo apt-get update && apt-get install maven -y
-USER jenkins
+    blueocean
 
 EXPOSE 8080
