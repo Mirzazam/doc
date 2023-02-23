@@ -1,7 +1,6 @@
 pipeline {
-    agent {
-        any
-    }
+    agent any
+    
 
     environment {
         DOCKERHUB_USERNAME = credentials('dockerhub-username') 
@@ -30,6 +29,7 @@ pipeline {
 
         }
     }
+}
 
 
 
