@@ -3,7 +3,7 @@ pipeline {
     
 
     environment {
-        DOCKERHUB_USERNAME = credentials('mirzazam')
+        DOCKERHUB_USERNAME = credentials('dockerhub_username')
         DOCKERHUB_PASS = credentials('dockerhub-pass')
         DOCKER_IMAGE_NAME = 'jenkins'
         DOCKER_IMAGE_TAG = 'updated'
@@ -13,7 +13,7 @@ pipeline {
         stage('Build the docker image') {
             steps {
                 script {
-                    docker.build("${DOCKERHUB_USERNAME}/${DOCKER_IMAGE_NAME}:${DOCKER_IMAGE_TAG}")
+                    docker.build("mirzazam/${DOCKER_IMAGE_NAME}:${DOCKER_IMAGE_TAG}")
                 }
             }
         }
