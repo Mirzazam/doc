@@ -10,12 +10,6 @@ pipeline {
 
     agent any
     stages {
-        stage ('remove exsisting docker image'){
-            steps {
-                sh 'docker rmi mirzazam/jenkins'
-
-            }
-        }
         stage('Build the docker image') {
             steps {
                 
