@@ -3,7 +3,7 @@ pipeline {
     
 
     environment {
-        DOCKERHUB_USERNAME = credentials('dockerhub_username')
+        DOCKERHUB_USERNAME = 'mirzazam'
         DOCKERHUB_PASS = credentials('dockerhub-pass')
         DOCKER_IMAGE_NAME = 'jenkins'
         DOCKER_IMAGE_TAG = 'updated'
