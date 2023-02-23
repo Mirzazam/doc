@@ -5,6 +5,7 @@ pipeline {
         DOCKERHUB_PASS = 'N3aa3h773h!'
         DOCKER_IMAGE_NAME = 'jenkins'
         DOCKER_IMAGE_TAG = 'updated'
+        DOCKERFILE_PATH = '/home/ubuntu/Dockerfile'
     }
 
     agent any
@@ -12,7 +13,7 @@ pipeline {
         stage('Build the docker image') {
             steps {
                 script {
-                    docker.build("mirzazam/${DOCKER_IMAGE_NAME}:${DOCKER_IMAGE_TAG}")
+                    docker.build("mirzazam/${DOCKER_IMAGE_NAME}:${DOCKER_IMAGE_TAG}", "${DOCKERFILE_PATH}" )
                 }
             }
         }
