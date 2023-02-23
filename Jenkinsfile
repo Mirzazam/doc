@@ -12,7 +12,7 @@ pipeline {
     stages {
         stage ('remove exsisting docker image'){
             steps {
-                sh 'docker rmi mirzazam/jenkins:updated'
+                sh 'docker rmi mirzazam/jenkins'
 
             }
         }
