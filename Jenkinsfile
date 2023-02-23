@@ -22,7 +22,7 @@ pipeline {
             steps {
                 script {
                     docker.withRegistry("https://registry.hub.docker.com", 'credentials-id') {
-                        sh 'docker login -u mirzazam -p ${credendials-id} docker.io'
+                        sh 'echo ${DOCKERHUB_PASSWORD_PSW} | -u ${DOCKERHUB_PASSWORD_USR} --password-stdin'
                         sh 'docker push mirzazam/jenkins:updated'
                     }
                 }
