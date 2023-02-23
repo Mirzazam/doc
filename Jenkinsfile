@@ -28,7 +28,7 @@ pipeline {
             steps {
                 script {
                     docker.withRegistry("https://registry.hub.docker.com", 'credentials-id') {
-                        sh 'docker tag mirzazam/jenkins:updated'
+                        sh 'docker tag mirzazam/jenkins:updated mirzazam/jenkins:updated'
                         sh 'docker push mirzazam/jenkins:updated'
                     }
                 }
