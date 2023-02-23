@@ -6,6 +6,7 @@ pipeline {
         DOCKER_IMAGE_NAME = 'jenkins'
         DOCKER_IMAGE_TAG = 'updated'
         DOCKERFILE_PATH = '/home/ubuntu/Dockerfile'
+        DOCKER_TOKEN = 'dockertoken'
     }
 
     agent any
@@ -22,7 +23,7 @@ pipeline {
             steps {
                 script {
                     docker.withRegistry("https://registry.hub.docker.com", 'credentials-id') {
-                        sh 'echo ${DOCKERHUB_PASSWORD_PSW} | -u ${DOCKERHUB_PASSWORD_USR} --password-stdin'
+                        sh 'docker login -u mirzazam -p "${dockertoken}" docker.io'
                         sh 'docker push mirzazam/jenkins:updated'
                     }
                 }
