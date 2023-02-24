@@ -7,4 +7,4 @@ RUN jenkins-plugin-cli \
     nexus-artifact-uploader
 
 
-EXPOSE 8080
+EXPOSE 8081
