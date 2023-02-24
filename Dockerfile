@@ -4,7 +4,7 @@ RUN jenkins-plugin-cli \
     git \
     workflow-aggregator \
     blueocean \
-    Nexus-Artifact-Uploader
+    nexus-artifact-uploader
 
 
 EXPOSE 8080
