@@ -4,6 +4,6 @@ RUN jenkins-plugin-cli \
     git \
     slack \
     nexus-artifact-uploader \
-    maven-integration 
+    maven-integration:3.20
 
 EXPOSE 8080
