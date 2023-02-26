@@ -5,7 +5,7 @@ RUN jenkins-plugin-cli \
     slack \
     publish-over-ssh \
     nexus-artifact-uploader \
-    maven-integration \
+    maven-integration 
 
 
 
