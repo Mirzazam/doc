@@ -2,9 +2,11 @@ FROM jenkins/jenkins:lts-jdk11
 RUN jenkins-plugin-cli \
     --plugins \
     git \
-    workflow-aggregator \
-    blueocean \
-    nexus-artifact-uploader
+    slack \
+    publish-over-ssh \
+    nexus-artifact-uploader \
+    maven-integration 
 
 
-EXPOSE 8081
+
+EXPOSE 8080
