@@ -4,6 +4,8 @@ RUN jenkins-plugin-cli \
     git \
     slack \
     nexus-artifact-uploader \
-    maven
+    maven-plugin \
+    publish-over-ssh \
+    docker-plugin
 
 EXPOSE 8080
