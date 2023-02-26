@@ -4,7 +4,7 @@ pipeline {
         
         DOCKERHUB_USERNAME = 'mirzazam'
         DOCKER_IMAGE_NAME = 'jenkins'
-        DOCKER_IMAGE_TAG = 'updated'
+        DOCKER_IMAGE_TAG = 'latest'
         DOCKER_TOKEN = credentials('dockertoken')
     }
 
