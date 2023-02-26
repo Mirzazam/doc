@@ -3,6 +3,7 @@ RUN jenkins-plugin-cli \
     --plugins \
     git \
     slack \
-    nexus-artifact-uploader 
+    nexus-artifact-uploader \
+    maven
 
 EXPOSE 8080
