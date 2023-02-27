@@ -2,10 +2,10 @@ pipeline {
 
         environment {
         
-        DOCKERHUB_USERNAME = 'mirzazam'
-        DOCKER_IMAGE_NAME = 'jenkins'
-        DOCKER_IMAGE_TAG = 'latest'
-        DOCKER_TOKEN = credentials('dockertoken')
+        DOCKERHUB_USERNAME= 'mirzazam'
+        DOCKER_IMAGE_NAME= 'jenkins'
+        DOCKER_IMAGE_TAG= 'latest'
+        DOCKER_TOKEN= credentials('dockertoken')
     }
 
     agent any
@@ -18,7 +18,7 @@ pipeline {
 
         stage('Push the docker image') {
             steps {
-                sh 'docker login -u "${DOCKERHUB_USERNAME}" -p dckr_pat_v7C9PQKSkNsXO65yWW8ErY139Mo '
+                sh 'docker login -u "${DOCKERHUB_USERNAME}" -p "${dockertoken}" '
                 sh 'docker push  "${DOCKERHUB_USERNAME}"/"${DOCKER_IMAGE_NAME}":"${DOCKER_IMAGE_TAG}"'
             }
         }
