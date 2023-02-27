@@ -5,7 +5,7 @@ pipeline {
         DOCKERHUB_USERNAME= 'mirzazam'
         DOCKER_IMAGE_NAME= 'jenkins'
         DOCKER_IMAGE_TAG= 'latest'
-        DOCKER_TOKEN= credentials('dockertoken')
+        registryCredentials= 'dockertoken'
     }
 
     agent any
@@ -16,12 +16,21 @@ pipeline {
             }
         }
 
-        stage('Push the docker image') {
-            steps {
-                sh 'docker login -u "${DOCKERHUB_USERNAME}" -p "${DOCKER_TOKEN}" '
-                sh 'docker push  "${DOCKERHUB_USERNAME}"/"${DOCKER_IMAGE_NAME}":"${DOCKER_IMAGE_TAG}"'
+        stage('login to docker hub'){
+            steps{
+                script {
+                    docker.withRegistry(DOCKERHUB_USERNAME ,registryCredentials )
+                }
             }
         }
+
+        stage('push the image to hub'){
+            steps{
+                sh 'docker push ${DOCKERHUB_USERNAME}/${DOCKER_IMAGE_NAME}:${DOCKER_IMAGE_TAG}'
+            }
+        }
+
+
     }
 
 }
