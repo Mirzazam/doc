@@ -19,7 +19,9 @@ pipeline {
         stage('login to docker hub'){
             steps{
                 script {
-                    docker.withRegistry(DOCKERHUB_USERNAME ,registryCredentials )
+                    docker.withRegistry(DOCKERHUB_USERNAME , registryCredentials ){
+                        
+                    }
                 }
             }
         }
