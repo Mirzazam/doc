@@ -16,14 +16,14 @@ pipeline {
             }
         }
 
-        stage('login to docker hub'){
-            steps{
+        stage('login to docker hosted repo') {
+            steps {
                 script {
-                    docker.withRegistry(DOCKERHUB_USERNAME , registryCredentials ){
-                        
+                    docker.withRegistry( '', registryCredentials) {
                     }
                 }
-            }
+                    
+                    } 
         }
 
         stage('push the image to hub'){
