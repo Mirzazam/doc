@@ -27,7 +27,7 @@ pipeline {
         }
         stage('push the image'){
             steps{
-                sh 'docker push -f mirzazam/jenkins:latest' 
+                sh 'docker push mirzazam/jenkins:latest' 
             }
         }
 
