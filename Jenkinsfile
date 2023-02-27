@@ -28,9 +28,13 @@ pipeline {
 
         stage('push the image to hub'){
             steps{
-                sh 'docker push "${DOCKERHUB_USERNAME}"/"${DOCKER_IMAGE_NAME}":"${DOCKER_IMAGE_TAG}" '
+                script{
+                    dockerImage.push()
+                }
             }
         }
+
+
         stage('logout from docker'){
             steps{
                 sh 'docker logout'
