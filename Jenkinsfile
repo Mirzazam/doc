@@ -18,7 +18,7 @@ pipeline {
 
         stage('Push the docker image') {
             steps {
-                sh 'docker login -u "${DOCKERHUB_USERNAME}" -p "${dockertoken}" '
+                sh 'docker login -u "${DOCKERHUB_USERNAME}" -p "${DOCKER_TOKEN}" '
                 sh 'docker push  "${DOCKERHUB_USERNAME}"/"${DOCKER_IMAGE_NAME}":"${DOCKER_IMAGE_TAG}"'
             }
         }
