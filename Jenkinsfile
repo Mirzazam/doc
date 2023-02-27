@@ -6,29 +6,25 @@ pipeline {
         DOCKER_IMAGE_NAME = 'jenkins'
         DOCKER_IMAGE_TAG = 'latest'
         DOCKER_TOKEN = credentials('dockertoken')
+        registryCredentials = "dockertoken"
     }
 
     agent any
     stages {
         stage('Build the docker image') {
             steps {
-                
-                    sh 'docker build -t ${DOCKERHUB_USERNAME}/${DOCKER_IMAGE_NAME}:${DOCKER_IMAGE_TAG} .'
-                
+                sh 'docker build -t ${DOCKERHUB_USERNAME}/${DOCKER_IMAGE_NAME}:${DOCKER_IMAGE_TAG} .'
             }
         }
 
         stage('Push the docker image') {
             steps {
-                        sh 'docker login -u "${DOCKERHUB_USERNAME}" -p "${DOCKER_TOKEN}"'
-                        sh 'docker push  "${DOCKERHUB_USERNAME}"/"${DOCKER_IMAGE_NAME}":"${DOCKER_IMAGE_TAG}"'
-                    }
-                
-            
+                sh 'docker login -u "${DOCKERHUB_USERNAME}" -p dckr_pat_v7C9PQKSkNsXO65yWW8ErY139Mo "'
+                sh 'docker push  "${DOCKERHUB_USERNAME}"/"${DOCKER_IMAGE_NAME}":"${DOCKER_IMAGE_TAG}"'
+            }
         }
-
-        
     }
+
 }
 
 
