@@ -26,13 +26,6 @@ pipeline {
                     
                     } 
         }
-        stage('push the image'){
-            steps{
-                sh 'docker push ${DOCKERHUB_USERNAME}/${DOCKER_IMAGE_NAME}:${DOCKER_IMAGE_TAG} ' 
-            }
-        }
-
-
         stage('logout from docker'){
             steps{
                 sh 'docker logout'
