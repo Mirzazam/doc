@@ -25,12 +25,9 @@ pipeline {
                     
                     } 
         }
-
-        stage('push the image to hub'){
+        stage('push the image'){
             steps{
-                script{
-                    dockerImage.push()
-                }
+                sh 'docker push mirzazam/jenkins:latest'
             }
         }
 
