@@ -20,6 +20,7 @@ pipeline {
             steps {
                 script {
                     docker.withRegistry( '', registryCredentials) {
+                        sh 'docker push ${DOCKERHUB_USERNAME}/${DOCKER_IMAGE_NAME}:${DOCKER_IMAGE_TAG} ' 
                     }
                 }
                     
@@ -27,7 +28,7 @@ pipeline {
         }
         stage('push the image'){
             steps{
-                sh 'sudo docker push mirzazam/jenkins:latest' 
+                sh 'docker push ${DOCKERHUB_USERNAME}/${DOCKER_IMAGE_NAME}:${DOCKER_IMAGE_TAG} ' 
             }
         }
 
